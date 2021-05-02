@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { observe } from './Game';
-import Board from './components/Board';
+import { Board } from './components/Board';
 import reportWebVitals from './reportWebVitals';
 
 const root = document.getElementById('root')

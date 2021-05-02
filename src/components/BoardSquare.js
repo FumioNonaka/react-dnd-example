@@ -1,15 +1,15 @@
 import { useDrop } from 'react-dnd';
 import { canMoveKnight, moveKnight } from '../Game';
 import { ItemTypes } from '../ItemTypes';
-import Square from './Square';
-import Overlay from './Overlay';
+import { Square } from './Square';
+import { Overlay } from './Overlay';
 
 const boardSquareStyle = {
 	position: 'relative',
 	width: '100%',
 	height: '100%',
 };
-const BoardSquare = ({ x, y, children }) => {
+export const BoardSquare = ({ x, y, children }) => {
 	const black = (x + y) % 2 === 1;
 	const [{ isOver, canDrop }, drop] = useDrop(() => ({
 		accept: ItemTypes.KNIGHT,
@@ -32,5 +32,3 @@ const BoardSquare = ({ x, y, children }) => {
 		</div>
 	);
 };
-
-export default BoardSquare;

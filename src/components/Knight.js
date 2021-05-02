@@ -9,7 +9,7 @@ const knightStyle = {
 	lineHeight: '4rem',
 	cursor: 'move',
 };
-const Knight = () => {
+export const Knight = () => {
 	const [{ isDragging }, drag, preview] = useDrag(() => ({
 		type: ItemTypes.KNIGHT,
 		collect: (monitor) => ({
@@ -31,5 +31,3 @@ const Knight = () => {
 		</>
 	);
 };
-
-export default Knight;

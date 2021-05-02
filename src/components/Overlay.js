@@ -7,7 +7,7 @@ const overlayStyle = {
 	zIndex: 1,
 	opacity: 0.5,
 };
-const Overlay = ({ color }) => {
+export const Overlay = ({ color }) => {
 	return (
 		<div
 			style={{
@@ -17,4 +17,3 @@ const Overlay = ({ color }) => {
 		/>
 	);
 };
-export default Overlay;

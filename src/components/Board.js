@@ -1,7 +1,7 @@
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend'
-import BoardSquare from './BoardSquare';
-import Knight from './Knight';
+import { BoardSquare } from './BoardSquare';
+import { Piece } from './Piece';
 
 const boardStyle = {
 	width: 500,
@@ -20,20 +20,13 @@ function renderSquare(i, [knightX, knightY]) {
 			style={squareStyle}
 		>
 			<BoardSquare x={x} y={y}>
-				{renderPiece(x, y, [knightX, knightY])}
+				<Piece isKnight={knightX === x && knightY === y} />
 			</BoardSquare>
 		</div>
 	);
 }
-function renderPiece(x, y, [knightX, knightY]) {
-	const isKnightHere = knightX === x && knightY === y;
-	return isKnightHere ? <Knight /> : null;
-}
-function Board({ knightPosition }) {
-	const squares = [];
-	for (let i = 0; i < 64; i++) {
-		squares.push(renderSquare(i, knightPosition));
-	}
+export const Board = ({ knightPosition }) => {
+	const squares = Array.from(new Array(64), (_, i) => renderSquare(i, knightPosition));
 	return (
 		<DndProvider backend={HTML5Backend}>
 			<div style={boardStyle}>
@@ -41,6 +34,4 @@ function Board({ knightPosition }) {
 			</div>
 		</DndProvider>
 	);
-}
-
-export default Board;
+};

@@ -2,7 +2,7 @@ const squareStyle = {
 	width: '100%',
 	height: '100%',
 };
-const Square = ({ black, children }) => {
+export const Square = ({ black, children }) => {
 	const fill = black ? 'black' : 'white';
 	const stroke = black ? 'white' : 'black';
 	return (
@@ -17,5 +17,3 @@ const Square = ({ black, children }) => {
 		</div>
 	);
 }
-
-export default Square;
